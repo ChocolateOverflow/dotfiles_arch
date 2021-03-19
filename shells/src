@@ -1,0 +1,96 @@
+#!/bin/sh
+
+### Aliases ###
+
+# Package managers
+alias p='pacman'
+alias sp='sudo pacman'
+
+# Edit
+alias e="$EDITOR"
+alias se="sudoedit"
+alias ee="$EDITOR ~/.config/nvim/init.vim"
+alias es="$EDITOR ~/git/dotfiles/shells/src"
+alias eb="$EDITOR ~/.bashrc"
+alias ez="$EDITOR ~/.zshrc"
+alias ep="$EDITOR ~/.config/powershell/profile.ps1"
+
+# git
+alias g='git'
+alias gr='cd $(git rev-parse --show-toplevel || echo ".")'
+alias gd='git diff'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gf='git fetch'
+
+# Arduino
+alias ard='arduino-cli'
+
+# ls
+alias ls='ls -hN --color=auto --group-directories-first'
+alias l='ls'
+alias sl='ls'
+alias la='ls -AhN --color=auto --group-directories-first'
+alias ll='ls -lhN --color=auto --group-directories-first'
+alias lla='ls -AlhN --color=auto --group-directories-first'
+
+# grep
+alias grep='grep --color=auto'
+alias egrep='grep -E'
+alias fgrep='grep -F'
+
+# Other conveniences
+alias cp='cp -i'
+alias df='df -h'
+alias free='free -m'
+alias ..='cd ..'
+alias i='setsid sxiv -ab'
+alias z='setsid zathura'
+alias f="$FILE_CLI"
+alias c='xclip -selection clipboard'
+alias q='exit'
+alias o='echo -n'
+alias h='help'
+alias py='python3 -c'
+alias bwp='bw generate -ulns --length'
+
+# Internet
+alias yta='youtube-dl --no-playlist --extract-audio --audio-format mp3' # Download audio
+alias get-ip='curl http://checkip.dyndns.org/ -s | grep-ip'
+
+# radare2
+alias r2='r2 -i ~/.config/radare2/r2taint.py'
+
+# Encoding & Decoding
+alias rot13='tr 'A-Za-z' 'N-ZA-Mn-za-m''
+alias b64='base64'
+alias b32='base32'
+
+### Functions ###
+
+# # ex - archive extractor
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) 	tar xjf $1;;
+      *.tar.gz) 	tar xzf $1;;
+      *.bz2) 			bunzip2 $1;;
+      *.rar) 			unrar x $1;;
+      *.gz) 			gunzip $1;;
+      *.tar) 			tar xf $1;;
+      *.tbz2) 		tar xjf $1;;
+      *.tgz) 			tar xzf $1;;
+      *.zip) 			unzip $1;;
+      *.Z) 				uncompress $1;;
+      *.7z) 			7z x $1;;
+			*.xz) 			unxz $1;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}

@@ -1,0 +1,41 @@
+add_newline = false
+
+format = """
+$custom ❯ \
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$line_break\
+$status\
+$character\
+"""
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+style = "bold green"
+
+[git_branch]
+format = "[$symbol$branch]($style)"
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vicmd_symbol = "[V](bold green)"
+
+[custom.zsh]
+command = "echo ZSH"
+when = """ test "$STARSHIP_SHELL" "==" "zsh" """
+format = "$output"
+
+[custom.bash]
+command = "echo BASH"
+when = """ test "$STARSHIP_SHELL" "==" "bash" """
+format = "$output"
+
+[custom.pwsh]
+command = "echo PS"
+when = """ test "$STARSHIP_SHELL" "==" "powershell" """
+format = "$output"

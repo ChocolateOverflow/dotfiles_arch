@@ -1,0 +1,98 @@
+{
+	"explorer.datetime.format": "dd/MM/yy HH:mm:ss",
+	"explorer.git.showIgnored": true,
+	"explorer.keyMappings.global": {
+	"i": true, // cancel default mapkey
+
+	"gk": "expandablePrev",
+	"gj": "expandableNext",
+
+	"<space>": "toggleSelection",
+	"<tab>": "actionMenu",
+
+	"h": "collapse",
+	"l": ["expandable?", "expand", "open"],
+	"J": ["toggleSelection", "nodeNext"],
+	"K": ["toggleSelection", "nodePrev"],
+	"gl": "expandRecursive",
+	"gh": "collapseRecursive",
+		"o": ["expanded?", "collapse", "expand"],
+		"<cr>": ["expandable?", "cd", "open"],
+		"e": "open",
+		"H": "open:split",
+		"V": "open:vsplit",
+		"T": "open:tab",
+		"<bs>": "gotoParent",
+		"gp": "preview:labeling",
+
+		"y": "copyFilepath",
+		"Y": "copyFilename",
+		"c": "copyFile",
+		"x": "cutFile",
+		"p": "pasteFile",
+		"d": "delete",
+		"D": "deleteForever",
+
+		"a": "addFile",
+		"A": "addDirectory",
+		"r": "rename",
+
+		".": "toggleHidden",
+		"R": "refresh",
+
+		"?": "help",
+		"q": "quit",
+		"<esc>": "esc",
+		"X": "systemExecute",
+		"gd": "listDrive",
+
+		"f": "search",
+		"F": "searchRecursive",
+
+		"gf": "gotoSource:file",
+		"gb": "gotoSource:buffer",
+
+		"[[": "sourcePrev",
+			"]]": "sourceNext",
+
+			"[d": "diagnosticPrev",
+				"]d": "diagnosticNext",
+
+				"[c": "gitPrev",
+					"]c": "gitNext",
+					"<<": "gitStage",
+					">>": "gitUnstage"
+},
+
+	// coc-jedi
+	"jedi.enable": true,
+  "jedi.startupMessage": false,
+  "jedi.markupKindPreferred": "plaintext",
+  "jedi.trace.server": "verbose",
+  "jedi.jediSettings.autoImportModules": [],
+  "jedi.executable.command": "jedi-language-server",
+  "jedi.executable.args": [],
+  "jedi.completion.disableSnippets": false,
+  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didSave": true,
+
+	// coc-markdown
+	"markdownlint.config": {
+	"default": true,
+  "line_length": false,
+	"MD004": false,
+	"MD010": false,
+	"MD040": false,
+	"MD025": false,
+	"MD007": false
+	},
+
+	// coc-snippets
+  "snippets.userSnippetsDirectory": "~/git/dotfiles/snippets/",
+  "git.enableGutters": true,
+
+	// ale
+	"diagnostic.displayByAle": true
+}

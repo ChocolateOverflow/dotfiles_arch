@@ -1,0 +1,15 @@
+backup
+*log
+config/mpd/database
+config/mpd/log
+config/mpd/pid
+config/mpd/state
+config/mpd/sticker.sql
+config/nvim/.netrwhist
+config/nvim/autoload
+config/nvim/plugged
+config/vifm/vifminfo*
+config/calcurse/caldav/config
+config/calcurse/caldav/oauth2_cred
+config/shelf/modules/*
+tags
