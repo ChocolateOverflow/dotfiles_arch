@@ -26,12 +26,12 @@ error_symbol = "[\\$](bold red)"
 vicmd_symbol = "[V](bold green)"
 
 [custom.zsh]
-command = "echo ZSH"
+command = "echo Z"
 when = """ test "$STARSHIP_SHELL" "==" "zsh" """
 format = "$output"
 
 [custom.bash]
-command = "echo BASH"
+command = "echo B"
 when = """ test "$STARSHIP_SHELL" "==" "bash" """
 format = "$output"
 

@@ -90,8 +90,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'tpope/vim-dispatch'
     " Rust
     Plug 'rust-lang/rust.vim'
-    " HTML/Javascript/PHP
-    Plug 'alvan/vim-closetag', {'for': 'html'}
+    " Web
+    Plug 'alvan/vim-closetag'
     " Markdown
     Plug 'tpope/vim-markdown'
     Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
@@ -267,7 +267,7 @@ aug PythonGroup
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
-" HTML/Javascript
+" Web
 """"""""""""""""""""""""""""""""""""""""
 aug WebGroup
     au!
@@ -276,6 +276,9 @@ aug WebGroup
 
     """ Format
     au FileType html,javascript nnoremap <F3> :Prettier<CR>
+
+    """ closetag
+    let g:closetag_filetypes = 'html,xhtml,phtml,xml,jsp'
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
