@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-export LIBVA_DRIVER_NAME=vdpau
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # Disable "screen off after some time idle"
 xset -dpms
@@ -13,9 +13,7 @@ unclutter --ignore-scrolling --jitter 5 &
 nm-applet &
 blueman-applet &
 flameshot &
-
-# Swap CAPS and ESC keys
-setxkbmap -option caps:swapescape
+transmission-daemon -er &
 
 # Start window manager
 bspwm -c $HOME/.config/bspwm/bspwmrc

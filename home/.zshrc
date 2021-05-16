@@ -25,10 +25,11 @@ for i in $(ls $PLUGIN_DIR); do
   source $PLUGIN_DIR/$i
 done
 
+unset _comp_dumpfile ZDOTDIR XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME
 # Completion
 fpath=($fpath /usr/share/zsh/functions/Completion/* $HOME/git/dotfiles/shells/zsh/completions)
 zstyle ':completion:*' extra-verbose yes
-#zstyle ':completion:list-expand:*' extra-verbose yes
+zstyle ':completion:list-expand:*' extra-verbose yes
 zstyle ':completion:*:complete:*:' tag-order '! ancestor-directories recent-directories recent-files' -
 zstyle ':completion:*:complete:*:' group-order files executables local-directories options builtins history-words
 zstyle ':autocomplete:*' min-input 1

@@ -20,14 +20,13 @@ set exrc
 """"""""""""""""""""""""""""""""""""""""
 filetype on
 filetype plugin on
-syntax on
 set autoindent breakindent
 set cpoptions+=y
 set cursorcolumn cursorline
 set encoding=utf-8
-set foldminlines=1 nofoldenable
-set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+set foldmethod=expr
+set foldminlines=1 nofoldenable
 set hidden
 set history=100
 set ignorecase smartcase
@@ -42,11 +41,28 @@ set shiftround
 set showcmd
 set smartindent
 set splitbelow splitright
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set suffixes+=*.class$
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 set title
 set visualbell
 set wildmenu wildmode=longest,list,full
 set wrap
+syntax on
+
+" disable mouse
+map <ScrollWheelUp> <nop>
+map <S-ScrollWheelUp> <nop>
+map <C-ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
+map <S-ScrollWheelDown> <nop>
+map <C-ScrollWheelDown> <nop>
+map <ScrollWheelLeft> <nop>
+map <S-ScrollWheelLeft> <nop>
+map <C-ScrollWheelLeft> <nop>
+map <ScrollWheelRight> <nop>
+map <S-ScrollWheelRight> <nop>
+map <C-ScrollWheelRight> <nop>
+set mouse=
 
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -90,6 +106,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'tpope/vim-dispatch'
     " Rust
     Plug 'rust-lang/rust.vim'
+    " Go
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Web
     Plug 'alvan/vim-closetag'
     " Markdown
@@ -101,6 +119,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     " Utilities
     Plug 'pechorin/any-jump.vim'
     Plug 'wellle/targets.vim'
+    Plug 'sedm0784/vim-you-autocorrect'
     " Browser
     Plug 'glacambre/firenvim', {'do': { _ -> firenvim#install(0)}}
 call plug#end()
@@ -113,6 +132,7 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-diagnostic',
     \ 'coc-git',
+    \ 'coc-go',
     \ 'coc-java',
     \ 'coc-java-debug',
     \ 'coc-json',
@@ -187,7 +207,6 @@ au BufReadPost *
 \ |     exe "normal! g`\""
 \ | endif
 
-
 """"""""""""""""""""""""""""""""""""""""
 " Formatting
 """"""""""""""""""""""""""""""""""""""""
@@ -201,6 +220,18 @@ aug FormatGroup
                     \ }
     let g:clang_format#auto_format = 0
     let g:clang_format#auto_format_on_insert_leave = 0
+
+    """ Black for python
+    au FileType python nnoremap <F3> :Black<CR>
+
+    """ web
+    au FileType html,javascript,json nnoremap <F3> :Prettier<CR>
+
+    """ SQL
+    au BufRead,BufNewFile *.sql nnoremap <F3> :CocCommand sql.Format<CR>
+
+    """ Go
+    au BufRead,BufNewFile *.go nnoremap <F3> :GoFmt<CR>
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
@@ -221,6 +252,7 @@ aug end
 """"""""""""""""""""""""""""""""""""""""
 aug JavaGroup
     au!
+    au FileType java let b:dispatch = 'javac %'
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
@@ -261,9 +293,6 @@ aug PythonGroup
     endf
     let pyindent_nested_paren="&sw*2"
     let pyindent_open_paren="&sw*2"
-
-    """ Format with Black
-    au FileType python nnoremap <F3> :Black<CR>
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
@@ -273,9 +302,6 @@ aug WebGroup
     au!
     """ json
     au FileType json syntax match Comment +\/\/.\+$+
-
-    """ Format
-    au FileType html,javascript nnoremap <F3> :Prettier<CR>
 
     """ closetag
     let g:closetag_filetypes = 'html,xhtml,phtml,xml,jsp'
@@ -287,6 +313,24 @@ aug end
 aug RustGroup
     au!
     au BufRead,BufNewFile *.rs nnoremap <F3> :RustFmt<CR>
+    au FileType rust let b:dispatch = 'cargo build'
+aug end
+
+""""""""""""""""""""""""""""""""""""""""
+" Go
+""""""""""""""""""""""""""""""""""""""""
+aug GoGroup
+  au!
+  autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+  autocmd FileType go let g:go_fmt_command = "goimports"
+  autocmd FileType go let g:go_highlight_types = 1
+  autocmd FileType go let g:go_highlight_fields = 1
+  autocmd FileType go let g:go_highlight_functions = 1
+  autocmd FileType go let g:go_highlight_function_calls = 1
+  autocmd FileType go let g:go_highlight_extra_types = 1
+  autocmd FileType go let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+  autocmd FileType go nmap <F2> :GoRename<CR>
+  autocmd FileType go nmap <F5> :GoRun %<CR>
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
@@ -340,6 +384,16 @@ aug end
 aug UMLGroup
     au!
     au BufRead,BufNewFile *.uml nnoremap <F5> :!plantuml %<CR>
+aug end
+
+""""""""""""""""""""""""""""""""""""""""
+" AutoCorrect
+""""""""""""""""""""""""""""""""""""""""
+aug AutoCorrectGroup
+  au!
+  nmap <F6> :EnableAutocorrect<CR>
+  nmap <F18> :DisableAutocorrect<CR>
+  nmap <Leader>u <Plug>VimyouautocorrectUndo
 aug end
 
 """"""""""""""""""""""""""""""""""""""""
@@ -418,6 +472,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f <Plug>(coc-format-selected)
+vmap <leader>f <Plug>(coc-format-selected)
 
 aug CocGroup
 au!
@@ -483,7 +538,7 @@ nnoremap <F2>k :<C-u>CocPrev<CR>
 nnoremap <F2>p :<C-u>CocListResume<CR>
 
 """ coc-prettier
-com! -nargs=0 Prettier :Coccom prettier.formatFile
+com! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 """ coc-snippets
 let g:coc_snippet_next = '<c-j>'
@@ -495,7 +550,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<CR>
 
 " Search project for word under cursor
-nmap <leader>sw :CocSearch <C-r>=expand("<cword>")<CR><CR>
+nmap <leader>fw :CocSearch <C-r>=expand("<cword>")<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " telescope

@@ -71,6 +71,7 @@ key_bindings:
   - { key: Plus, mods: Alt|Shift, action: ResetFontSize }
   - { key: Equals, mods: Alt, action: IncreaseFontSize }
   - { key: Return, mods: Alt, action: SpawnNewInstance }
+  - { key: Return, mods: Control, chars: "!!\n" }
   - { key: Back, mods: Alt, chars: "clear\n" }
   - { key: Escape, mods: Alt, action: ToggleViMode }
   - { key: U, mods: Alt, chars: "ü" }

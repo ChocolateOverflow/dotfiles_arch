@@ -2,20 +2,20 @@
 	"explorer.datetime.format": "dd/MM/yy HH:mm:ss",
 	"explorer.git.showIgnored": true,
 	"explorer.keyMappings.global": {
-	"i": true, // cancel default mapkey
+		"i": true,
 
-	"gk": "expandablePrev",
-	"gj": "expandableNext",
+		"gk": "expandablePrev",
+		"gj": "expandableNext",
 
-	"<space>": "toggleSelection",
-	"<tab>": "actionMenu",
+		"<space>": "toggleSelection",
+		"<tab>": "actionMenu",
 
-	"h": "collapse",
-	"l": ["expandable?", "expand", "open"],
-	"J": ["toggleSelection", "nodeNext"],
-	"K": ["toggleSelection", "nodePrev"],
-	"gl": "expandRecursive",
-	"gh": "collapseRecursive",
+		"h": "collapse",
+		"l": ["expandable?", "expand", "open"],
+		"J": ["toggleSelection", "nodeNext"],
+		"K": ["toggleSelection", "nodePrev"],
+		"gl": "expandRecursive",
+		"gh": "collapseRecursive",
 		"o": ["expanded?", "collapse", "expand"],
 		"<cr>": ["expandable?", "cd", "open"],
 		"e": "open",
@@ -53,45 +53,45 @@
 		"gb": "gotoSource:buffer",
 
 		"[[": "sourcePrev",
-			"]]": "sourceNext",
+		"]]": "sourceNext",
 
-			"[d": "diagnosticPrev",
-				"]d": "diagnosticNext",
+		"[d": "diagnosticPrev",
+		"]d": "diagnosticNext",
 
-				"[c": "gitPrev",
-					"]c": "gitNext",
-					"<<": "gitStage",
-					">>": "gitUnstage"
-},
+		"[c": "gitPrev",
+		"]c": "gitNext",
+		"<<": "gitStage",
+		">>": "gitUnstage"
+	},
 
 	// coc-jedi
 	"jedi.enable": true,
-  "jedi.startupMessage": false,
-  "jedi.markupKindPreferred": "plaintext",
-  "jedi.trace.server": "verbose",
-  "jedi.jediSettings.autoImportModules": [],
-  "jedi.executable.command": "jedi-language-server",
-  "jedi.executable.args": [],
-  "jedi.completion.disableSnippets": false,
-  "jedi.diagnostics.enable": true,
-  "jedi.diagnostics.didOpen": true,
-  "jedi.diagnostics.didChange": true,
-  "jedi.diagnostics.didSave": true,
+	"jedi.startupMessage": false,
+	"jedi.markupKindPreferred": "plaintext",
+	"jedi.trace.server": "verbose",
+	"jedi.jediSettings.autoImportModules": [],
+	"jedi.executable.command": "jedi-language-server",
+	"jedi.executable.args": [],
+	"jedi.completion.disableSnippets": false,
+	"jedi.diagnostics.enable": true,
+	"jedi.diagnostics.didOpen": true,
+	"jedi.diagnostics.didChange": true,
+	"jedi.diagnostics.didSave": true,
 
 	// coc-markdown
 	"markdownlint.config": {
-	"default": true,
-  "line_length": false,
-	"MD004": false,
-	"MD010": false,
-	"MD040": false,
-	"MD025": false,
-	"MD007": false
+		"default": true,
+		"line_length": false,
+		"MD004": false,
+		"MD010": false,
+		"MD040": false,
+		"MD025": false,
+		"MD007": false
 	},
 
 	// coc-snippets
-  "snippets.userSnippetsDirectory": "~/git/dotfiles/snippets/",
-  "git.enableGutters": true,
+	"snippets.userSnippetsDirectory": "~/git/dotfiles/snippets/",
+	"git.enableGutters": true,
 
 	// ale
 	"diagnostic.displayByAle": true

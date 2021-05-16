@@ -2,8 +2,8 @@
 
 super + t
 	unicode_copy
-super + shit + t
-	kaomoji_copy
+super + shift + t
+	$TERMINAL -e tremc
 super + i
 	$TERMINAL -e bashtop
 super + o
