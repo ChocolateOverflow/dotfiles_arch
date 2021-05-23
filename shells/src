@@ -52,13 +52,13 @@ alias z='setsid zathura'
 alias f="$FILE_CLI"
 alias c='xclip -selection clipboard'
 alias q='exit'
-alias o='echo -n'
+alias o='xdg-open'
 alias h='help'
 alias py='python3 -c'
 alias bwp='bw generate -ulns --length'
 alias m='setsid mpv'
 alias ard='arduino-cli'
-alias r2='r2 -i ~/.config/radare2/r2taint.py'
+alias r2='r2 -A'
 
 # Internet
 alias yta='youtube-dl --no-playlist --extract-audio --audio-format mp3' # Download audio
