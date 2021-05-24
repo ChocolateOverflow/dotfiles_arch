@@ -21,12 +21,18 @@ export SCREENLOCK="i3lock -c 000000"
 # bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+# VirtualBox client
+if [ "$(systemd-detect-virt)" != "none" ]; then
+  VBoxClient --clipboard
+  VBoxClient --draganddrop
+fi
+
 # Increase batch limit
 ulimit -n 40000
 
 # Start ssh agent
 eval "$(ssh-agent -s)" &> /dev/null
-ssh-add -q ~/.ssh/github
+[ -f ~/.ssh/github ] && ssh-add -q ~/.ssh/github
 
 # GPG
 export GPG_TTY=$(tty)
