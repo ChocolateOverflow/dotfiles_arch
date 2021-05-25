@@ -1,6 +1,6 @@
 # PATHs
 
-PATH="$PATH:$HOME/.npm/bin:/usr/bin/vendor_perl/:$HOME/.cargo/bin:$HOME/perl5/bin"
+PATH="$PATH:$HOME/.local/bin/:$HOME/.npm/bin:/usr/bin/vendor_perl/:$HOME/.cargo/bin:$HOME/perl5/bin"
 PATH="$PATH:$(du "$HOME/git/dotfiles/scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH
 export PERL5LIB="/home/jco/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
