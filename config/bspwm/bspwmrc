@@ -44,3 +44,9 @@ wmname LG3D
 
 pgrep sxhkd || sxhkd &
 launch_polybar &
+
+# VirtualBox client
+if [ "$(systemd-detect-virt)" != "none" ]; then
+  VBoxClient --clipboard
+  VBoxClient --draganddrop
+fi
