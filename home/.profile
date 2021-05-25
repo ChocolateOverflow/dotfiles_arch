@@ -1,7 +1,8 @@
 # PATHs
 
-export PATH="$PATH:$HOME/.npm/bin:/usr/bin/vendor_perl/:$HOME/.cargo/bin:$HOME/perl5/bin"
-export PATH="$PATH:$(du "$HOME/git/dotfiles/scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+PATH="$PATH:$HOME/.npm/bin:/usr/bin/vendor_perl/:$HOME/.cargo/bin:$HOME/perl5/bin"
+PATH="$PATH:$(du "$HOME/git/dotfiles/scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH
 export PERL5LIB="/home/jco/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="/home/jco/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"/home/jco/perl5\""
@@ -33,6 +34,3 @@ ulimit -n 40000
 # Start ssh agent
 eval "$(ssh-agent -s)" &> /dev/null
 [ -f ~/.ssh/github ] && ssh-add -q ~/.ssh/github
-
-# GPG
-export GPG_TTY=$(tty)

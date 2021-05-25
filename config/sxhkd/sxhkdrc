@@ -36,6 +36,8 @@ super + shift + m
 	$TERMINAL -e pulsemixer
 super + Return
 	$TERMINAL
+super + shift + Return
+	alacritty --config-file ~/.config/alacritty/alacritty2.yml -e tmux
 
 ##### bspwm #####
 

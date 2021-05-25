@@ -14,6 +14,7 @@ pgrep unclutter || unclutter --ignore-scrolling --jitter 5 &
 pgrep nm-applet || nm-applet &
 pgrep blueman-applet || blueman-applet &
 pgrep flameshot || flameshot &
+pgrep picom || picom &
 pgrep transmission-daemon || transmission-daemon -er &
 
 # Start window manager

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# GPG
+GPG_TTY="$(tty)"
+export GPG_TTY
+
 ### Aliases ###
 
 # Package managers
