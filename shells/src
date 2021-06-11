@@ -29,7 +29,6 @@ alias ga='git add .'
 alias gc='git commit'
 alias gp='git push'
 alias gP='git pull'
-alias gf='git fetch'
 alias gC='git rev-parse --short HEAD'
 
 # ls
@@ -63,12 +62,12 @@ alias bwp='bw generate -ulns --length'
 alias m='setsid mpv'
 alias ard='arduino-cli'
 alias r2='r2 -A'
+alias mpcreset='mpc clear; mpc add /; mpc play'
 
 # Internet
 alias yta='youtube-dl --no-playlist --extract-audio --audio-format mp3' # Download audio
+alias yt='youtube-dl --no-playlist'
 alias get-ip='curl http://checkip.dyndns.org/ -s | grep-ip'
-
-# Torrent
 alias trc='transmission-remote'
 
 # Encoding & Decoding

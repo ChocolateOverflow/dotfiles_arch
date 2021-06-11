@@ -4,7 +4,7 @@ import sys,urllib.parse
 if len(sys.argv) == 1:
     # use stdin
     for line in sys.stdin:
-        print(urllib.parse.unquote_plus(line), end="")
+        print(urllib.parse.unquote(line), end="")
 else:
     for i in sys.argv[1:]:
-        print(urllib.parse.unquote_plus(i), end="")
+        print(urllib.parse.unquote(i), end="")

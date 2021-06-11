@@ -3,7 +3,7 @@ import sys,urllib.parse
 
 if len(sys.argv) == 1:
     for i in sys.stdin:
-        print(urllib.parse.quote_plus(i), end="")
+        print(urllib.parse.quote(i), end="")
 else:
     for i in sys.argv[1:]:
-        print(urllib.parse.quote_plus(i), end="")
+        print(urllib.parse.quote(i), end="")

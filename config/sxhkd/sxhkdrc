@@ -8,6 +8,8 @@ super + i
 	$TERMINAL -e bashtop
 super + o
 	$TERMINAL -e calcurse
+super + shift + o
+	obsidian
 super + p
 	$TERMINAL -e bpython
 super + d

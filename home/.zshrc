@@ -67,4 +67,11 @@ bindkey $key[Up] up-line-or-search
 bindkey $key[Down] down-line-or-select
 #bindkey $key[ControlSpace] list-expand
 
+# gf
+compdef _gf gf
+function _gf {
+    _arguments "1: :($(gf -list))"
+}
+
+# starship
 eval "$(~/.cargo/bin/starship init zsh)"
