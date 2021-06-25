@@ -1,5 +1,5 @@
 {
   "engine": "rg",
-  "flags": "-o",
-  "pattern": "https?://[^\"\\'> ]+"
+  "flags": "-i",
+  "pattern": "https?://[^\"'> ]+"
 }

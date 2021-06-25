@@ -1,6 +1,6 @@
 {
   "engine": "rg",
-  "flags": "-o",
+  "flags": "-Io",
   "patterns": [
     "[a-z0-9.-]+\\.s3\\.amazonaws\\.com",
     "[a-z0-9.-]+\\.s3-[a-z0-9-]\\.amazonaws\\.com",

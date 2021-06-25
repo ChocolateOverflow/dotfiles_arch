@@ -63,11 +63,12 @@ alias m='setsid mpv'
 alias ard='arduino-cli'
 alias r2='r2 -A'
 alias mpcreset='mpc clear; mpc add /; mpc play'
+alias trid="LC_ALL=C trid"
 
 # Internet
 alias yta='youtube-dl --no-playlist --extract-audio --audio-format mp3' # Download audio
 alias yt='youtube-dl --no-playlist'
-alias get-ip='curl http://checkip.dyndns.org/ -s | grep-ip'
+alias get-ip='curl http://checkip.dyndns.org/ -s | gf ip'
 alias trc='transmission-remote'
 
 # Encoding & Decoding
