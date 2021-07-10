@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+#[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Disable "screen off after some time idle"
@@ -16,6 +16,7 @@ pgrep nm-applet || nm-applet &
 pgrep blueman-applet || blueman-applet &
 pgrep flameshot || flameshot &
 pgrep transmission-daemon || transmission-daemon -er &
+pgrep lxpolkit || lxpolkit &
 
 # Start window manager
 bspwm -c $HOME/.config/bspwm/bspwmrc

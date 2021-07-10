@@ -19,6 +19,9 @@ export FILE_GUI="pcmanfm"
 export TERMINAL="alacritty"
 export SCREENLOCK="i3lock -c 000000"
 
+# duplicity
+export GOOGLE_DRIVE_SETTINGS="$HOME/.config/duplicity/pydrive.conf"
+
 # bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -28,3 +31,4 @@ ulimit -n 40000
 # Start ssh agent
 eval "$(ssh-agent -s)" &> /dev/null
 [ -f ~/.ssh/github ] && ssh-add -q ~/.ssh/github
+. "$HOME/.cargo/env"

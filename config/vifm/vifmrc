@@ -333,6 +333,9 @@ vnoremap w :view<cr>gv
 " Open file in $EDITOR
 nnoremap o :!$EDITOR %f<cr>
 
+" Open images
+nnoremap I :!sxiv -bf *(png|jpg|gif)<cr>
+
 " Interaction with system clipboard
 if has('win')
     " Yank current directory path to Windows clipboard with forward slashes
@@ -354,7 +357,6 @@ elseif executable('xsel')
 endif
 
 " Mappings for faster renaming
-nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
 
@@ -405,3 +407,8 @@ noremap gh :cd ~<cr>
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+" dragon
+nnoremap dr :!dragon -a -x %f<CR>
+nnoremap ds :!dragon -a %f<CR>
+nnoremap de :!dragon %f<CR>

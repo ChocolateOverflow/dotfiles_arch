@@ -32,3 +32,4 @@ __git_complete g __git_main
 eval "$(starship init bash)"
 
 source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"

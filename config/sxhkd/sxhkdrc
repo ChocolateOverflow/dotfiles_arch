@@ -3,7 +3,7 @@
 super + t
 	unicode_copy
 super + shift + t
-	$TERMINAL -e tremc
+	$TERMINAL -e tremc -n
 super + i
 	$TERMINAL -e bashtop
 super + o
@@ -24,6 +24,8 @@ super + v
 	clipmenu -i
 super + ctrl + v
 	clipdel -d . && notify-send "Nuked clipmenu"
+super + shift + v
+	$TERMINAL -e pulsemixer
 super + b
 	$BROWSER
 super + shift + b
@@ -35,7 +37,7 @@ super + shift + n
 super + m
 	$TERMINAL -e ncmpcpp
 super + shift + m
-	$TERMINAL -e pulsemixer
+	thunderbird
 super + Return
 	$TERMINAL
 super + shift + Return

@@ -30,6 +30,7 @@ alias gc='git commit'
 alias gp='git push'
 alias gP='git pull'
 alias gC='git rev-parse --short HEAD'
+alias gcl='git clone --depth 1'
 
 # ls
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -62,8 +63,10 @@ alias bwp='bw generate -ulns --length'
 alias m='setsid mpv'
 alias ard='arduino-cli'
 alias r2='r2 -A'
-alias mpcreset='mpc clear; mpc add /; mpc play'
 alias trid="LC_ALL=C trid"
+alias tldr='tldr -t base16 --linux'
+alias rcsync='rclone sync -P'
+alias audacity='firejail --net=none audacity'
 
 # Internet
 alias yta='youtube-dl --no-playlist --extract-audio --audio-format mp3' # Download audio

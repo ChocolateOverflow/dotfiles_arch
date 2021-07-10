@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+"""Check for non-ascii charaters"""
+
+import sys
+
+if len(sys.argv) > 1:
+    # check each argument
+    for s in sys.argv[1:]:
+        if all(ord(c) < 128 for c in s):
+            print(f"\033[32m+\033[00m {s}")
+        else:
+            print("\033[31m-\033[00m ", end="")
+            for c in s:
+                if ord(c) < 128:
+                    print(c, end="")
+                else:
+                    print(f"\033[31m{c}\033[00m", end="")
+            print()
+else:
+    # read from pipe
+    i = 0
+    for line in sys.stdin:
+        i += 1
+        if not all(ord(c) < 128 for c in line):
+            print(f"\033[32m{i}\033[00m ", end='')
+            for c in line:
+                if ord(c) < 128:
+                    print(c, end="")
+                else:
+                    print(f"\033[31m{c}\033[00m", end="")

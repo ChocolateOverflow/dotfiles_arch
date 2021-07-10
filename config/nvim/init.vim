@@ -32,6 +32,7 @@ set history=100
 set ignorecase smartcase
 set inccommand=nosplit
 set incsearch
+set lazyredraw
 set nohlsearch
 set path+=**
 set rnu nu
